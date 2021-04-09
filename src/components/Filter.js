@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Filter({onCategoryChange, onSortBy, onSetSortBy}){
+function Filter({onCategoryChange, onSortBy, onSetSortBy, onHandleAddHog}){
 
     function handleSortChange(event){
         onSetSortBy(event.target.value)
@@ -20,6 +20,8 @@ function Filter({onCategoryChange, onSortBy, onSetSortBy}){
                     <option value="Weight"> Weight</option>
                     <option value="Name"> Name</option>
                 </select>
+
+                <button onClick={onHandleAddHog}>Add Hog</button>
 
             </div>
 
