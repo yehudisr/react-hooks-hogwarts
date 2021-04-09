@@ -13,12 +13,15 @@ function handleShowDetails(event){
 
     return(
 
-        <div class="ui eight wide column">
-            <img src={hog.image} alt={hog.name}/>
-            <h2>{hog.name}</h2>
+        <div className="pigTile">
+           
+            <img className="minPigTile" src={hog.image} alt={hog.name}/>
+            <h3>{hog.name}</h3>
             <button onClick={handleShowDetails}>{showDetails ? 'Less' : 'More'} Info</button>
             
             {showDetails && <HogDetails hog={hog}/>}
+
+            
 
         </div>
     )

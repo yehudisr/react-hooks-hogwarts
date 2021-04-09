@@ -7,7 +7,7 @@ function HogList({ hogList, setHogList }){
 
     return(
 
-        <div class="ui grid container">
+        <div className="ui grid container">
        
            {allHogs}
 

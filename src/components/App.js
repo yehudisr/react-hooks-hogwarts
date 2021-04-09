@@ -8,23 +8,35 @@ function App() {
 
   const [hogList, setHogList] = useState(hogs)
   const [selectedCategory, setSelectedCategory]= useState("All")
-
+  const [sortBy, setSortBy] = useState("name")
 
   function handleCategoryChange(event){
       setSelectedCategory(event.target.value)
   }
 
-  const filteredHogs = hogList.filter((hog)=> {
+  const hogsToShow = hogList
+  
+  .filter((hog)=> {
     if(selectedCategory === "All") return true
-    return hog.greased === selectedCategory
+    return hog.greased === true
+  })
+ 
+
+  .sort((a,b)=> {
+    if(sortBy === "Weight"){
+      return a.weight - b.weight
+    } else {
+      return a.name.localeCompare(b.name)
+    }
   })
 
+  
 
   return (
     <div className="App">
       <Nav />
-      <Filter onCategoryChange={handleCategoryChange}/>
-      <HogList hogList={hogList} setHogList={setHogList}/>
+      <Filter onCategoryChange={handleCategoryChange} onSortBy={sortBy} onSetSortBy={setSortBy}/>
+      <HogList hogList={hogsToShow} setHogList={setHogList}/>
     </div>
   );
 }
